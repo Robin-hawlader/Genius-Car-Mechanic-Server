@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require('express'); //1
 const { MongoClient, Collection } = require('mongodb');
 const cors = require('cors');
 require('dotenv').config()
 const query = require('mongodb').ObjectId;
 const { ObjectID, ObjectId } = require('bson');
 
-const app = express();
-const port = 5000;
+const app = express(); //2
+const port = process.env.PORT || 5000; //3
 
 // Midleware
 app.use(cors());
@@ -62,7 +62,7 @@ run().catch(console.dir)
 
 app.get('/', (req, res) => {
     res.send('Running on genius car mecanics serve')
-})
+})  //4
 
 app.listen(port, () => {
     console.log('Running genius car on port', port)
